@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Tra cứu đơn hàng</title>
+</head>
+<body>
+  <h3>Tra cứu thông tin sản phẩm</h3>
+  <input type="text" id="masp" placeholder="Nhập mã sản phẩm">
+  <button onclick="search()">Tìm</button>
+  <div id="result" style="margin-top:20px;"></div>
+
+  <script>
+    async function search() {
+      const masp = document.getElementById("masp").value.trim();
+      if (!masp) {
+        document.getElementById("result").innerHTML = "<p>Vui lòng nhập mã sản phẩm.</p>";
+        return;
+      }
+
+      const url = "https://script.google.com/macros/s/AKfycbx8CqRrDVce3YTtUtRgOIWJOEWgv6MQF14jbNOnzdj342bQAato42Z18asRBbk4obt5Pw/exec?masp=" + encodeURIComponent(masp);
+      const res = await fetch(url);
+      const html = await res.text();
+      document.getElementById("result").innerHTML = html;
+    }
+  </script>
+</body>
+</html>
