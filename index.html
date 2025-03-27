@@ -18,7 +18,7 @@
         return;
       }
 
-      const url = "https://script.google.com/macros/s/AKfycbx8CqRrDVce3YTtUtRgOIWJOEWgv6MQF14jbNOnzdj342bQAato42Z18asRBbk4obt5Pw/exec?masp=" + encodeURIComponent(masp);
+      const url = "https://script.google.com/macros/s/AKfycbx8CqRrDVce3YTtUtRgOIWJOEWgv6MQF14jbNOnzdj342bQAato42Z18asRBbk4obt5Pw/exec" + encodeURIComponent(masp);
       const res = await fetch(url);
       const html = await res.text();
       document.getElementById("result").innerHTML = html;
